@@ -1,4 +1,5 @@
 # Table of contents
 
-* [Functions & Callbacks notes.](README.md)
+* [Intro](README.md)
+* [Functions & Callbacks notes.](<README (1).md>)
 * [Closure Introduction.](closure-introduction..md)
