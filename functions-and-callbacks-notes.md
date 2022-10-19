@@ -1,4 +1,4 @@
-# Functions & Callbacks notes.
+# Functions & Callbacks notes
 
 
 
