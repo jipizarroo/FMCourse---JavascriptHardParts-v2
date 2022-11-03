@@ -70,3 +70,35 @@ so when the function is trying to reach counter in newFunction, it goes into the
 How does the function, incrementCounter, gets to grab the surrounding data and store it?\
 It gets a hidden property \[\[ scope ]], this is how it brings its hidden property to the global memory.\
 The only way of reaching the scope of incrementCounter is by calling the function.\
+
+
+### Multiple Closure Instances.
+
+```
+function outer (){
+    let counter = 0;
+    function incrementCounter(){ counter ++; }
+    return incrementCounter;
+}
+const myNewFunction = outer();
+newFunction();
+newFunction();
+
+const anotherFunction = outer();
+anotherFunction();
+anotherFunction();
+```
+
+\*Would this mean that when we call either myNewFunction or anotherFunction, counter will increase either way? would it be 4 at the end ??\*\
+
+
+The answer is no, its a scope for each local memory of each functions, it would mean that we get a backpack for each function, so we would get in console: 1, 2  --- 1, 2.\
+
+
+Closure gives our functions **persistent memories** and entirely new toolkit for writing professional code.
+
+* **Helper functions:** Everyday professional helper functions like 'once' and 'memoize'.
+* **Iterators and generators:** Which use lexical scoping and closure to achieve the most contemporary patterns for handling data in JS.
+* **Module pattern:** Preserve state for the life of an application without polluting the global namespace.
+* **Asynchronous JS**: Callbacks and Promises rely on closure to persist state in an asynchronous environment&#x20;
+
