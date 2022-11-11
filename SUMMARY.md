@@ -5,3 +5,4 @@
 * [Closure Introduction](closure-introduction.md)
 * [Closure Technical definition.](closure-technical-definition..md)
 * [Asynchronous JavaScript.](asynchronous-javascript..md)
+* [Promises](promises.md)
