@@ -6,4 +6,4 @@
 * [Closure Technical definition.](closure-technical-definition..md)
 * [Asynchronous JavaScript.](asynchronous-javascript..md)
 * [Promises](promises.md)
-* [Prototype Chain](prototype-chain.md)
+* [Prototype Chain & Classes](prototype-chain-and-classes.md)

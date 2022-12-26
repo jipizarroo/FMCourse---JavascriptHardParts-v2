@@ -1,4 +1,4 @@
-# Prototype Chain
+# Prototype Chain & Classes
 
 Store the function in just one object and have the interpreter, if it doesn't find the function on user1, look up to that object to check if it's there.
 
@@ -110,3 +110,67 @@ multiplyBy2.prototype // {}
 
 <figure><img src=".gitbook/assets/Screen Shot 2022-12-23 at 19.55.57.png" alt=""><figcaption><p>We could use the fact that all functions have a default property 'prototype' on their object version, (itself an object) - to replace our 'functionStore' object. </p></figcaption></figure>
 
+The new keyword automates a lot of our manual work.
+
+```
+function userCreator(name, score){
+    this.name = name;
+    this.score = score;
+}
+
+userCreator.prototype.increment = function(){ this.score++; };
+userCreator.prototype.login = function(){ console.log("login"); };
+
+const user1 = new userCreator("Eva", 9)
+
+user.increment();
+```
+
+<figure><img src=".gitbook/assets/Screen Shot 2022-12-25 at 22.30.47.png" alt=""><figcaption><p>This happens when we declare a function in JS.</p></figcaption></figure>
+
+<figure><img src=".gitbook/assets/Screen Shot 2022-12-25 at 22.38.15.png" alt=""><figcaption><p>This is what happens when we declare user1 with the new keyboard.</p></figcaption></figure>
+
+When we call for increment in user1, we must remember that the function increment it is not saved inside the user1 object, but it is referenced to the global function increment inside of the userCreator, this is the beauty of the prototype inside functions.
+
+Introducing the keyword that automates the hard work: new.
+
+Benefits:&#x20;
+
+* Faster to write. Often used in practice in professional code.
+
+Problems:&#x20;
+
+* 95% of developers have no idea how it works and therefore can't debug.
+
+&#x20;                                      Solution 4: The class 'syntactic sugar'
+
+We're writing our shared methods separately from out object 'constructor' itself ( off in the userCreator.prototype object )\
+\
+Other languages let us do this all in one place. ES2015 lets us do so too.
+
+```
+class userCreator {
+    constructor (name, score){
+        this.name = name;
+        this.score = score;
+    }
+    increment(){
+        this.score++;
+    }
+    login(){ console.log("login"); }
+}
+
+const user1 = new UserCreator("Eva", 9);
+user1.increment();
+```
+
+Nothing has changed under the hood with this compared to solution 3. A class is the same function + object combo. This makes it more readable for other devs, but it's just the same!
+
+Benefits:
+
+* Emerging as a new standard
+* Feels more like style of other languages (e.g. Python)
+
+Problems:&#x20;
+
+* 99% of devs have no idea how it works.
